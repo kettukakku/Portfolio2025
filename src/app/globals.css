@@ -1,21 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600;700&family=Cinzel+Decorative:wght@400;700;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Primary Colors */
+  --color-primary: #66a694;
+  --color-primary-light: #7cedc6;
+
+  /* Text Colors */
+  --color-text: #333333;
+  --color-text-light: #ffffff;
+  --color-text-faded: #666666;
+  --color-text-dark: #333333;
+
+  /* Background Colors */
+  --color-background: #ffffff;
+  --color-background-alt: #f5f5f5;
+
+  /* Button Colors */
+  --color-button: #eca562;
+  --color-button-hover: #7cedc6;;
 }
 
+/* Dark mode variables */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Keeping primary colors the same in dark mode */
+    --color-primary-dark: #37a284;
+    --color-primary-light: #7cedc6;
+    
+    --color-text: #ffffff;
+    --color-text-faded: #cccccc;
+    --color-background: #464544;
+    --color-background-alt: #2a2a2a;
   }
 }
 
+/* Base styles */
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: 'Raleway', Arial, sans-serif;
+}
+@layer components {
+  .section-header {
+    @apply bg-[var(--color-background)] px-4 py-1 font-bold mb-4 tracking-[0.2em] text-center;
+  }
+  .sidebar-text {
+    @apply text-[var(--color-text-light)] text-sm tracking-[0.05em] leading-relaxed px-4;
+  }
+  .social-icon {
+    @apply hover:text-[var(--color-primary-light)] transition-colors;
+  }
+  .job-title {
+    @apply font-semibold pt-8 pb-4;
+  }
+  .job-details {
+    @apply text-sm text-[var(--color-text-faded)];
+  }
 }
