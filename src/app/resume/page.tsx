@@ -28,7 +28,7 @@ export default function Resume() {
             </div>
             <p className="mt-2">
               My philosophy as an editor is to build a bridge between the author, 
-              publisher, and readers. It's through strong and open communication 
+              publisher, and readers. It&apos;s through strong and open communication 
               and an ability to adapt to changes that I can connect words.
             </p>
           </div>
@@ -40,8 +40,8 @@ export default function Resume() {
               <p>2024 - Present</p>
             </div>
             <p className="mt-2">
-              As a new team member on a game that's been around since 2009, 
-              I've learned to balance preserving brand integrity and bringing 
+              As a new team member on a game that&apos;s been around since 2009, 
+              I&apos;ve learned to balance preserving brand integrity and bringing 
               new ideas to the table.
             </p>
           </div>
@@ -54,7 +54,7 @@ export default function Resume() {
             </div>
             <p className="mt-2">
               In a fast-paced environment with quick turnaround times, I developed 
-              a keen eye for time management. What's more important to me than speed, 
+              a keen eye for time management. What&apos;s more important to me than speed, 
               however, is crafting well-sourced and engaging articles.
             </p>
           </div>
