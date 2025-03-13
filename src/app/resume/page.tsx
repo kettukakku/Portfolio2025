@@ -2,7 +2,7 @@ import Sidebar from "@/components/Sidebar";
 
 export default function Resume() {
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen md:flex-row flex-col">
       <Sidebar />
       <main className="flex-1 p-8 bg-[var(--color-background)]">
         {/* Header */}
