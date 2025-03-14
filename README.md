@@ -22,8 +22,11 @@ npx --no-install next build
 
 - [ ] Create project sample page.
 - [ ] Create blog page.
+- [ ] Create book review page layout.
 - [ ] Set up mobile verison.
     - [x] ~~Added hamburger menu to Sidebar~~
+    - [x] ~~Make nav take up whole screen when toggled.~~
+    - [ ] Fix the double scroll bar.
 - [ ] Add animations.
 
 ## Completed:

@@ -60,4 +60,7 @@ body {
   .job-details {
     @apply text-sm text-[var(--color-text-faded)];
   }
+  .nav-link {
+    @apply hover:text-[var(--color-primary-light)] transition-colors font-semibold flex items-center gap-2 tracking-[0.15em];
+  }
 }
