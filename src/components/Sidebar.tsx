@@ -19,6 +19,23 @@ export default function Sidebar() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  // Add this new effect
+  useEffect(() => {
+    if (isMobile) {
+      document.body.style.overflow = isOpen ? 'hidden' : 'auto';
+    }
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [isOpen, isMobile]);
+
+  const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
+    <Link href={href} className="nav-link" onClick={() => setIsOpen(false)}>
+      <span className="text-[var(--color-primary-light)]">◆</span>
+      {children}
+    </Link>
+  );
+
   return (
     <>
       {/* Hamburger Menu Button */}
@@ -37,24 +54,24 @@ export default function Sidebar() {
 
       {/* Sidebar Content */}
       <aside className={`
-        ${isMobile ? 'fixed inset-0 z-40 min-h-[100dvh]' : 'w-80'} 
+        ${isMobile ? 'fixed inset-0' : ''} 
         ${isMobile && !isOpen ? '-translate-x-full' : 'translate-x-0'}
-        bg-[var(--color-primary)] flex flex-col
+        bg-[var(--color-primary)]
         transition-transform duration-100 ease-in-out
       `}>
-        <div className={`${isMobile ? 'overflow-y-auto overscroll-contain pb-16' : ''} h-full`}>
+        <div className={`${isMobile ? 'overflow-y-auto py-4' : 'w-[320px]'} h-full`}>
           {/* Profile Image */}
           <div className="py-4">
-            <div className={`${isMobile ? 'w-[200px]' : 'w-[280px]'} mx-auto aspect-square relative`}>
+            <div className={`${isMobile ? 'w-[200px]' : 'w-[240px]'} mx-auto aspect-square relative`}>
               <div className="absolute inset-[1px] bg-white" 
-                 style={{ 
-                   clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)',
-                   transform: 'scale(1.05)' 
-                 }}>
+                style={{ 
+                  clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)',
+                  transform: 'scale(1.05)' 
+                }}>
                 <div className="absolute inset-[8px] bg-[var(--color-primary)]"
-                     style={{ 
-                       clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)'
-                     }}>
+                    style={{ 
+                      clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)'
+                    }}>
                   <Image
                     src="/siamese-cat-cover.webp"
                     alt="Profile"
@@ -69,29 +86,15 @@ export default function Sidebar() {
           </div>
 
           {/* Rest of content */}
-          <div className={`${isMobile ? '' : 'px-8'} pb-8`}>
+          <div className={`${isMobile ? '' : 'px-4'}`}>
             {/* Navigation Section */}
             <section className="mb-8">
-              <h2 className="section-header">
-                NAVIGATION
-              </h2>
+              <h2 className="section-header">NAVIGATION</h2>
               <nav className="sidebar-text flex flex-col gap-2">
-                <Link href="/resume" className="nav-link">
-                  <span className="text-[var(--color-primary-light)]">◆</span>
-                  Resume
-                </Link>
-                <Link href="/samples" className="nav-link">
-                  <span className="text-[var(--color-primary-light)]">◆</span>
-                  Writing Samples
-                </Link>
-                <Link href="/blog" className="nav-link">
-                  <span className="text-[var(--color-primary-light)]">◆</span>
-                  Blog
-                </Link>
-                <Link href="/bookpost" className="nav-link">
-                  <span className="text-[var(--color-primary-light)]">◆</span>
-                  Book Post - FOR TESTING
-                </Link>
+                <NavLink href="/resume">Resume</NavLink>
+                <NavLink href="/samples">Writing Samples</NavLink>
+                <NavLink href="/blog">Blog</NavLink>
+                <NavLink href="bookpost">Book Post - FOR TESTING</NavLink>
               </nav>
             </section>
 
@@ -138,7 +141,7 @@ export default function Sidebar() {
             {/* Social Media Section */}
             <section>
               <h2 className="section-header">SOCIAL MEDIA</h2>
-              <ul className="flex justify-around py-2 sidebar-text">
+              <ul className={`flex ${isMobile ? 'px-12' : ''} justify-around py-4`}>
                 <li>
                   <a href="#" className="social-icon">
                     <FaGithub className="w-6 h-6" />

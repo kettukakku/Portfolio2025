@@ -15,7 +15,18 @@ export default {
       fontFamily: {
         sans: ['Raleway', 'Arial', 'sans-serif'],
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            '--tw-prose-body': 'inherit',
+            '--tw-prose-headings': 'inherit',
+            '--tw-prose-links': 'var(--color-primary)',
+          }
+        },
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 } satisfies Config;
