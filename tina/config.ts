@@ -48,9 +48,91 @@ export default defineConfig({
           },
         ],
         ui: {
-          // This is an DEMO router. You can remove this to fit your site
-          router: ({ document }) => `/demo/blog/${document._sys.filename}`,
+          router: ({ document }) => `/pages/${document._sys.filename}`,
         },
+      },
+      {
+        name: "reviews",
+        label: "Reviews",
+        path: "content/reviews",
+        format: "mdx",
+        fields: [
+          {
+            type: "string",
+            name: "title",
+            label: "Title",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "string",
+            name: "author",
+            label: "Author",
+            required: true,
+          },
+          {
+            type: "image",
+            name: "image",
+            label: "Image",
+            required: true,
+          },
+          {
+            type: "number",
+            name: "rating",
+            label: "Rating",
+            required: true,
+            ui: {
+              validate: (value) => {
+                if (value < 1 || value > 5) {
+                  return "Rating must be between 1 and 5";
+                }
+              },
+            },
+          },
+          {
+            type: "string",
+            name: "ratingdesc",
+            label: "Rating Description",
+          },
+          {
+            type: "string",
+            name: "links",
+            label: "Links",
+            list: true,
+            ui: {
+              min: 1,
+              max: 5,
+            },
+          },
+          {
+            type: "rich-text",
+            name: "body",
+            label: "Body",
+            isBody: true,
+          },
+          {
+            type: "datetime",
+            name: "date",
+            label: "Date",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "tags",
+            label: "Tags",
+            list: true,
+            options: [
+              "Horror",
+              "Fantasy",
+              "Mystery",
+              "Romance",
+              "Sci-Fi",
+              "Thriller",
+              "Historical",
+              "Non-Fiction",
+            ],
+          },
+        ],
       },
     ],
   },

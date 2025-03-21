@@ -27,8 +27,10 @@ tinacms init backend
 - [ ] Create blog page.
   - [x] ~~Created base layout.~~
   - [x] ~~Add basic tag selection~~
+  - [ ] Propagate blog post cards from TinaCMS data.
 - [ ] Create book review page layout.
   - [x] ~~Created base layout.~~
+  - [ ] Set up dynamic routing.
 - [ ] Set up mobile verison.
   - [x] ~~Added hamburger menu to Sidebar~~
   - [x] ~~Make nav take up whole screen when toggled.~~
