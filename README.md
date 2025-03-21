@@ -18,6 +18,7 @@ Helpful commands:
 ```bash
 npm run dev
 npx --no-install next build
+tinacms init backend
 ```
 
 ## To-do:
@@ -40,3 +41,4 @@ npx --no-install next build
 - [x] ~~Light/Dark mode~~
 - [x] ~~Tweak button/accent colors for improved contrast.~~
 - [x] ~~Add navigation menu.~~
+- [x] ~~Imported TinaCMS.~~
