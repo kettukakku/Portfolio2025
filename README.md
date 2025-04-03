@@ -33,6 +33,7 @@ npx --no-install next build
   - [x] ~~Make nav take up whole screen when toggled.~~
   - [x] ~~Fix the double scroll bar.~~
 - [ ] Add animations.
+- [ ] Figure out a new CMS to use.
 
 ## Completed:
 
